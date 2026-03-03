@@ -3,7 +3,7 @@ import groovy.model.Candidato;
 
 
 class CandidatoMock {
-    static List<Candidato> candidatos = [
+    public static List<Candidato> candidatos = [
             new Candidato(
                     nome: "Layssa Ferreira",
                     email: "layssa.ferreira@email.com",
