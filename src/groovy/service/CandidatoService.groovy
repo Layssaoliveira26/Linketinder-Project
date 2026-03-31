@@ -9,11 +9,11 @@ class CandidatoService {
         if (candidato == null) {
             throw new IllegalArgumentException("Candidato não deve ser nulo");
         }
-        CandidatoDAO.inserir(candidato);
+        CandidatoDAO.inserirCandidato(candidato);
     }
 
     static void listarCandidatos() {
-        CandidatoDAO.listar()
+        CandidatoDAO.listarCandidato()
     }
 
 }

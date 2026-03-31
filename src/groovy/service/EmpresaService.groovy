@@ -1,6 +1,6 @@
 package groovy.service
 
-
+import groovy.data.EmpresaDAO
 import groovy.data.EmpresaMock
 import groovy.model.Empresa
 
@@ -10,7 +10,7 @@ class EmpresaService {
         if (empresa == null) {
             throw new IllegalArgumentException("Empresa não deve ser nula");
         }
-        EmpresaMock.empresas.add(empresa);
+        EmpresaDAO.inserirEmpresa(empresa);
     }
 
 }

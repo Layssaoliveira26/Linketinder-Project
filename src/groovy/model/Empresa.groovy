@@ -5,11 +5,12 @@ import groovy.transform.MapConstructor
 class Empresa {
     String nome;
     String emailCorporativo;
-    long cnpj;
+    String cnpj;
     String pais;
     String estado;
-    int cep;
+    String cep;
     String descricaoEmpresa;
+    String senha;
 
 
     @Override

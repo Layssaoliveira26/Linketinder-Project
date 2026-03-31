@@ -5,7 +5,7 @@ import java.sql.Connection
 import java.sql.PreparedStatement
 import java.sql.Statement
 
-static void inserir(Candidato candidato) {
+static void inserirCandidato(Candidato candidato) {
 
     String sql = """
         INSERT INTO candidatos 
@@ -35,7 +35,7 @@ static void inserir(Candidato candidato) {
     }
 }
 
-static void listar() {
+static void listarCandidato() {
 
     String sql = "SELECT * FROM candidatos"
 
