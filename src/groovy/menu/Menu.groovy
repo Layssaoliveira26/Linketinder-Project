@@ -1,7 +1,9 @@
 package groovy.menu
 
-import groovy.data.CandidatoMock
+import groovy.data.CandidatoDAO
+
 import groovy.data.EmpresaMock
+import groovy.service.CandidatoService
 
 class Menu {
 
@@ -11,17 +13,60 @@ class Menu {
         println "|-------------------------------------------------------|"
         println "| 1-Visualizar lista de candidatos                      |"
         println "| 2-Visualizar lista de empresas                        |"
+        println "| 3-Cadastrar candidato                                 |"
     }
 
     static void iniciar(Scanner input, String entrada) {
         while(entrada) {
             if (entrada == "1") {
-                CandidatoMock.getListaCandidatos();
+                CandidatoDAO.listar();
                 break;
             } else if (entrada == "2") {
                 EmpresaMock.getListaEmpresas();
                 break;
-            } else {
+            } else if (entrada == "3") {
+                println "Nome:"
+                def nome = input.nextLine()
+
+                println "Sobrenome:"
+                def sobrenome = input.nextLine()
+
+                println "Email:"
+                def email = input.nextLine()
+
+                println "CPF:"
+                def cpf = input.nextLine()
+
+                println "País:"
+                def pais = input.nextLine()
+
+                println "CEP:"
+                def cep = input.nextLine()
+
+                println "Descrição:"
+                def descricao = input.nextLine()
+
+                println "Senha:"
+                def senha = input.nextLine()
+
+                def candidato = new groovy.model.Candidato(
+                        nome: nome,
+                        sobrenome: sobrenome,
+                        dataNascimento: java.time.LocalDate.now(),
+                        email: email,
+                        cpf: cpf,
+                        pais: pais,
+                        cep: cep,
+                        descricaoPessoal: descricao,
+                        senha: senha,
+                        competencias: []
+                )
+
+                CandidatoService.adicionarCandidato(candidato);
+
+                break;
+            }
+            else {
                 println "Numeração de atividade não encontrada, digite uma numeração válida:"
                 entrada = input.nextLine();
             }

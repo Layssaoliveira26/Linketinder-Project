@@ -1,7 +1,6 @@
 package groovy
 
-import groovy.data.CandidatoMock
-import groovy.data.EmpresaMock
+
 import groovy.menu.Menu
 
 class Main {

@@ -1,28 +1,33 @@
 package groovy.model
 
-class Candidato {
-    String nome;
-    String email; //lembrar de fazer validação depois
-    long cpf;
-    int idade;
-    String estado;
-    int cep;
-    String descricaoPessoal;
-    def competencias = [];
+import java.time.LocalDate
 
+class Candidato {
+
+    String nome
+    String sobrenome
+    LocalDate dataNascimento
+    String email
+    String cpf
+    String pais
+    String cep
+    String descricaoPessoal
+    String senha
+
+    def competencias = []
 
     @Override
-    public String toString() {
+    String toString() {
         return "Candidato {" +
-                "" +
                 "nome='" + nome + '\'' +
+                ", sobrenome='" + sobrenome + '\'' +
+                ", dataNascimento=" + dataNascimento +
                 ", email='" + email + '\'' +
-                ", cpf=" + cpf +
-                ", idade=" + idade +
-                ", estado='" + estado + '\'' +
-                ", cep=" + cep +
+                ", cpf='" + cpf + '\'' +
+                ", pais='" + pais + '\'' +
+                ", cep='" + cep + '\'' +
                 ", descricaoPessoal='" + descricaoPessoal + '\'' +
                 ", competencias=" + competencias +
-                '}';
+                '}'
     }
 }

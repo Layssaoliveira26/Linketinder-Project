@@ -1,8 +1,7 @@
 package groovy.service
 
-import groovy.data.CandidatoMock
+
 import groovy.data.EmpresaMock
-import groovy.model.Candidato
 import groovy.model.Empresa
 
 class EmpresaService {

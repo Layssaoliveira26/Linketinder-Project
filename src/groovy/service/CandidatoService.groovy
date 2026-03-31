@@ -1,7 +1,7 @@
 package groovy.service
 
+import groovy.data.CandidatoDAO
 import groovy.model.Candidato
-import groovy.data.CandidatoMock
 
 class CandidatoService {
 
@@ -9,6 +9,11 @@ class CandidatoService {
         if (candidato == null) {
             throw new IllegalArgumentException("Candidato não deve ser nulo");
         }
-        CandidatoMock.candidatos.add(candidato);
+        CandidatoDAO.inserir(candidato);
     }
+
+    static void listarCandidatos() {
+        CandidatoDAO.listar()
+    }
+
 }
