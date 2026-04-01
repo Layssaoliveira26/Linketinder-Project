@@ -1,6 +1,6 @@
 package groovy.data
 
-
+import groovy.model.Candidato
 import groovy.model.Empresa
 
 import java.sql.Connection
@@ -78,6 +78,34 @@ static void listarEmpresaResumida() {
             ---------------------------
             """
         }
+
+    } catch (Exception e) {
+        e.printStackTrace()
+    }
+}
+
+static void atualizarEmpresa(Empresa empresa) {
+
+    String sql = """
+        UPDATE empresas
+        SET nome = ?, email = ?, pais = ?, cep = ?, descricao_empresa = ?, senha = ?
+        WHERE cnpj = ?
+    """
+
+    try (Connection conn = Conexao.conectar();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, empresa.nome)
+        stmt.setString(2, empresa.emailCorporativo)
+        stmt.setString(3, empresa.pais)
+        stmt.setString(4, empresa.cep)
+        stmt.setString(5, empresa.descricaoEmpresa)
+        stmt.setString(6, empresa.senha)
+        stmt.setString(7, empresa.cnpj)
+
+        stmt.executeUpdate()
+
+        println "Empresa atualizada com sucesso!"
 
     } catch (Exception e) {
         e.printStackTrace()

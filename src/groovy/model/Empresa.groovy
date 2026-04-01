@@ -7,7 +7,6 @@ class Empresa {
     String emailCorporativo;
     String cnpj;
     String pais;
-    String estado;
     String cep;
     String descricaoEmpresa;
     String senha;

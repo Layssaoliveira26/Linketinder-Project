@@ -1,6 +1,7 @@
 package groovy.menu
 
 import groovy.menu.MenuAtualizacaoCandidato
+import groovy.menu.MenuAtualizacaoEmpresa
 import groovy.menu.MenuCadastroCandidato
 import groovy.menu.MenuCadastroEmpresa
 import groovy.menu.MenuCadastroVaga
@@ -20,7 +21,7 @@ class MenuGeral {
         println "| 4-Cadastrar empresa                                   |"
         println "| 5-Cadastrar vaga                                      |"
         println "| 6-Atualização Candidato                               |"
-        println "| 6-Atualização Empresa                               |"
+        println "| 7-Atualização Empresa                               |"
 
     }
 
@@ -45,7 +46,8 @@ class MenuGeral {
                 MenuAtualizacaoCandidato.mostrarMenuAtualizacaoCandidato(input, entrada);
                 break;
             } else if (entrada == "7") {
-
+                MenuAtualizacaoEmpresa.mostrarMenuAtualizacaoEmpresa(input, entrada);
+                break;
             }
             else {
                 println "Numeração de atividade não encontrada, digite uma numeração válida:"
