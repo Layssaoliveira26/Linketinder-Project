@@ -1,7 +1,7 @@
 package groovy.service
 
+import groovy.data.CandidatoDAO
 import groovy.data.EmpresaDAO
-import groovy.data.EmpresaMock
 import groovy.model.Empresa
 
 class EmpresaService {
@@ -13,4 +13,11 @@ class EmpresaService {
         EmpresaDAO.inserirEmpresa(empresa);
     }
 
+    static void listarEmpresas() {
+        EmpresaDAO.listarEmpresa();
+    }
+
+    static void listarEmpresasResumida() {
+        EmpresaDAO.listarEmpresaResumida();
+    }
 }

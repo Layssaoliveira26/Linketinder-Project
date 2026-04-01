@@ -61,3 +61,33 @@ static void listarCandidato() {
         e.printStackTrace()
     }
 }
+
+static void atualizarCandidato(Candidato candidato) {
+
+    String sql = """
+        UPDATE candidatos 
+        SET nome = ?, sobrenome = ?, email = ?, pais = ?, cep = ?, descricao_pessoal = ?, senha = ?, competencias = ?
+        WHERE cpf = ?
+    """
+
+    try (Connection conn = Conexao.conectar();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, candidato.nome)
+        stmt.setString(2, candidato.sobrenome)
+        stmt.setString(3, candidato.email)
+        stmt.setString(4, candidato.pais)
+        stmt.setString(5, candidato.cep)
+        stmt.setString(6, candidato.descricaoPessoal)
+        stmt.setString(7, candidato.senha)
+        stmt.setString(8, candidato.competencias.toString())
+        stmt.setString(9, candidato.cpf)
+
+        stmt.executeUpdate()
+
+        println "Candidato atualizado com sucesso!"
+
+    } catch (Exception e) {
+        e.printStackTrace()
+    }
+}

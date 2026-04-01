@@ -1,13 +1,13 @@
 package groovy
 
 
-import groovy.menu.Menu
+import groovy.menu.MenuGeral
 
 class Main {
     static void main(String[] args) {
-        Menu.exibir();
+        MenuGeral.exibir();
         Scanner input = new Scanner(System.in);
         String entrada = input.nextLine();
-        Menu.iniciar(input, entrada);
+        MenuGeral.iniciar(input, entrada);
     }
 }

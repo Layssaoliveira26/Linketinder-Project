@@ -35,7 +35,7 @@ static void inserirEmpresa(Empresa empresa) {
     }
 }
 
-static void listaEmpresas() {
+static void listarEmpresa() {
 
     String sql = "SELECT * FROM empresas"
 
@@ -53,6 +53,28 @@ static void listaEmpresas() {
             CEP: ${rs.getString("cep")}
             Descrição: ${rs.getString("descricao_empresa")}
             Senha: ${rs.getString("senha")}
+            ---------------------------
+            """
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace()
+    }
+}
+
+static void listarEmpresaResumida() {
+
+    String sql = "SELECT id, nome FROM empresas"
+
+    try (Connection conn = Conexao.conectar();
+         Statement stmt= conn.createStatement();
+         def rs = stmt.executeQuery(sql)) {
+
+        while (rs.next()) {
+            println """
+            ---------------------------
+            Id Empresa: ${rs.getString("id")}
+            Nome: ${rs.getString("nome")}
             ---------------------------
             """
         }
