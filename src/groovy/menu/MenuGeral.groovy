@@ -1,5 +1,7 @@
 package groovy.menu
 
+import groovy.data.CandidatoDAO
+import groovy.data.EmpresaDAO
 import groovy.menu.MenuAtualizacaoCandidato
 import groovy.menu.MenuAtualizacaoEmpresa
 import groovy.menu.MenuCadastroCandidato
@@ -21,7 +23,9 @@ class MenuGeral {
         println "| 4-Cadastrar empresa                                   |"
         println "| 5-Cadastrar vaga                                      |"
         println "| 6-Atualização Candidato                               |"
-        println "| 7-Atualização Empresa                               |"
+        println "| 7-Atualização Empresa                                 |"
+        println "| 8-Exclusão de Candidato                               |"
+        println "| 9-Exclusão de Empresa                                 |"
 
     }
 
@@ -48,8 +52,19 @@ class MenuGeral {
             } else if (entrada == "7") {
                 MenuAtualizacaoEmpresa.mostrarMenuAtualizacaoEmpresa(input, entrada);
                 break;
-            }
-            else {
+            } else if (entrada == "9") {
+                println("Informe o CNPJ da empresa a ser excluida");
+                entrada = input.nextLine();
+                def cnpj = entrada;
+                EmpresaDAO.excluirEmpresa(cnpj);
+                break;
+            } else if (entrada == "8") {
+                println("Informe o CPF do Candidato a ser excluido");
+                entrada = input.nextLine();
+                def cpf = entrada;
+                CandidatoDAO.excluirCandidato(cpf);
+                break;
+            } else {
                 println "Numeração de atividade não encontrada, digite uma numeração válida:"
                 entrada = input.nextLine();
             }

@@ -111,3 +111,21 @@ static void atualizarEmpresa(Empresa empresa) {
         e.printStackTrace()
     }
 }
+
+static void excluirEmpresa(String cnpj) {
+
+    String sql = "DELETE FROM empresas WHERE cnpj = ?"
+
+    try (Connection conn = Conexao.conectar();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, cnpj)
+
+        stmt.executeUpdate()
+
+        println "Empresa excluída com sucesso!"
+
+    } catch (Exception e) {
+        e.printStackTrace()
+    }
+}

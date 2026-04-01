@@ -9,5 +9,6 @@ class Main {
         Scanner input = new Scanner(System.in);
         String entrada = input.nextLine();
         MenuGeral.iniciar(input, entrada);
+
     }
 }

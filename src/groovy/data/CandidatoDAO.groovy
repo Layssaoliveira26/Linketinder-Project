@@ -1,5 +1,6 @@
 package groovy.data
 
+import groovy.data.Conexao
 import groovy.model.Candidato
 import java.sql.Connection
 import java.sql.PreparedStatement
@@ -87,6 +88,23 @@ static void atualizarCandidato(Candidato candidato) {
 
         println "Candidato atualizado com sucesso!"
 
+    } catch (Exception e) {
+        e.printStackTrace()
+    }
+}
+
+static void excluirCandidato(String cpf) {
+
+    String sql = "DELETE from candidatos WHERE cpf = ?"
+
+    try(Connection conn = Conexao.conectar()
+        PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, cpf);
+
+        stmt.executeUpdate();
+
+        println "Candidato excluído com sucesso!"
     } catch (Exception e) {
         e.printStackTrace()
     }
